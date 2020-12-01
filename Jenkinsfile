@@ -2,9 +2,21 @@
 pipeline {
     agent any
     stages {
-        stage('Stage 1') {
+        stage('Build') {
             steps {
-                echo 'Hello Groovy World!'
+                echo 'Building...'
+                checkout scm
+                sh 'cat README.md'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
             }
         }
     }
